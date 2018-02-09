@@ -1,9 +1,11 @@
 package com.ia.dell.springbootsample.controller;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -22,6 +24,7 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.ia.dell.springbootsample.model.User;
 import com.ia.dell.springbootsample.service.UserService;
 
 @RunWith(SpringRunner.class)
@@ -62,11 +65,13 @@ public class LoginControllerTest {
     }
     
     @Test
-    @WithMockUser(roles="ADMIN")
+    @WithMockUser//(roles="ADMIN")
     public void shouldReturnOkWhenCallChangePassword() throws Exception {
-        mockMvc.perform(post("/api/v1/auth/change-password")
+    	when(userService.findByLogin("jossa2")).thenReturn(new User());
+    	
+        mockMvc.perform(patch("/api/v1/auth/change-password")
 				 .contentType(MediaType.APPLICATION_JSON_UTF8)
-				 .content("{\"username\": \"jossa2\", \"password\": 1234}"))
+				 .content("{\"username\": \"jossa2\", \"password\": \"1234\"}"))
        			.andDo(print())
        			.andExpect(status().isOk())
        			.andDo(document("change-password", requestFields(
