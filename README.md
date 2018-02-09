@@ -16,12 +16,12 @@ O projeto é composto por quatro subprojetos, são eles:
 	com os perfis development e production.	
 
 Foram mantidas as configurações de porta padrão para todos os serviços, conforme abaixo:
-	Redis - 6379
-	RabbitMQ - 5672
-	Postgres - 5432
-	Config-server - 8888	
+	Redis:6379
+	RabbitMQ:5672
+	Postgres:5432
+	Config-server:8888	
 
-Para executar a aplicação basta executar o comando *sudo docker-compose up*
+Para rodar a aplicação basta executar o comando *mvn package* e depois *sudo docker-compose up*
 
 A aplicação principal estará disponível no endereço http://localhost:8080;
 
