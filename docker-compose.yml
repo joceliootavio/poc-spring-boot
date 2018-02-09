@@ -1,10 +1,7 @@
 version: '2'
 services:
   app:
-    image: app
-    build:
-      context: ./spring-boot-sample
-      dockerfile: Dockerfile
+    image: java-app
     ports:
       - "8080:8080"
     networks:
@@ -14,29 +11,32 @@ services:
       - redis-server
       - rabbitmq-server
       - config-server
+    volumes:
+      - ./spring-boot-sample/target:/opt
   config-server:
-    image: config-server
+    image: java-app
     build:
-      context: ./spring-config-server
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile    
     ports:
       - "8888:8888"
     networks:
-      - spring-cloud-network    
+      - spring-cloud-network
+    volumes:
+      - ./spring-config-server/target:/opt
   email-sender:
-    image: email-sender
-    build:
-      context: ./spring-rabbitmq-consumer
-      dockerfile: Dockerfile
+    image: java-app
     ports:
-      - "8081:8081"
+      - "8082:8081"
     networks:
       - spring-cloud-network
     depends_on:
       - rabbitmq-server    
       - config-server 
+    volumes:
+      - ./spring-rabbitmq-consumer/target:/opt
   mypostgres:
-    image: postgres
+    image: postgres:alpine
     ports:
       - "5432:5432"
     networks:
@@ -52,7 +52,7 @@ services:
     networks:
       - spring-cloud-network     
   rabbitmq-server:
-    image: rabbitmq
+    image: rabbitmq:alpine
     ports:
       - "5672:5672"
     networks:

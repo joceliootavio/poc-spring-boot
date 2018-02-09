@@ -14,4 +14,13 @@
                 <module>spring-rabbitmq-consumer</module>
         </modules>
 
+        <build>
+                <plugins>
+                        <plugin>
+                                <groupId>com.dkanejs.maven.plugins</groupId>
+                                <artifactId>docker-compose-maven-plugin</artifactId>
+                                <version>1.0.2</version>
+                        </plugin>
+                </plugins>
+        </build>
 </project>
