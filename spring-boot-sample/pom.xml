@@ -134,7 +134,14 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<finalName>app</finalName>
-				</configuration>				
+				</configuration>
+				<executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>	
 			</plugin>
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
