@@ -1,0 +1,15 @@
+= API Docs for Spring REST Web Services
+
+This are examples output for the services running at http://localhost:8080:
+
+.curl
+include::{snippets}/login/curl-request.adoc[]
+
+.request
+include::{snippets}/login/http-request.adoc[]
+
+.response
+include::{snippets}/login/http-response.adoc[]
+
+.httpie-request
+include::{snippets}/login/httpie-request.adoc[]
