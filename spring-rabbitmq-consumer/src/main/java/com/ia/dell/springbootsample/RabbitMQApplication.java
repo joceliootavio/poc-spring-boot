@@ -8,11 +8,9 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 import com.ia.dell.springbootsample.listener.EmailListener;
 
-@EnableWebSecurity
 @SpringBootApplication
 public class RabbitMQApplication {
     public static final String EMAIL_QUEUE = "emailQueue";

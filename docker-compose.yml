@@ -3,59 +3,59 @@ services:
   app:
     image: app
     build:
-        context: spring-boot-sample
-        dockerfile: Dockerfile
+      context: ./spring-boot-sample
+      dockerfile: Dockerfile
     ports:
-    - "8080:8080"
+      - "8080:8080"
     networks:
-     - spring-cloud-network    
+      - spring-cloud-network    
     depends_on:
-    - mypostgres
-    - redis-server
-    - rabbitmq-server
-    - config-server
+      - mypostgres
+      - redis-server
+      - rabbitmq-server
+      - config-server
   config-server:
     image: config-server
     build:
-        context: spring-config-server
-        dockerfile: Dockerfile
+      context: ./spring-config-server
+      dockerfile: Dockerfile
     ports:
-    - "8888:8888"
+      - "8888:8888"
     networks:
-     - spring-cloud-network    
+      - spring-cloud-network    
   email-sender:
     image: email-sender
     build:
-        context: rabbitmq-consumer
-        dockerfile: Dockerfile
+      context: ./spring-rabbitmq-consumer
+      dockerfile: Dockerfile
     ports:
-    - "8081:8081"
+      - "8081:8081"
     networks:
-     - spring-cloud-network
+      - spring-cloud-network
     depends_on:
-    - rabbitmq-server     
+      - rabbitmq-server     
   mypostgres:
     image: postgres
     ports:
-     - "5432:5432"
+      - "5432:5432"
     networks:
-     - spring-cloud-network
+      - spring-cloud-network
     environment:
-     - POSTGRES_PASSWORD=123
-     - POSTGRES_USER=postgres
-     - POSTGRES_DB=spring-boot-sample
-   redis-server:
-    image: redis
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=spring-boot-sample
+  redis-server:
+    image: "redis:alpine"
     ports:
-     - "6379:6379"
+      - "6379:6379"
     networks:
-     - spring-cloud-network     
-   rabbitmq-server:
+      - spring-cloud-network     
+  rabbitmq-server:
     image: rabbitmq
     ports:
-     - "5672:5672"
+      - "5672:5672"
     networks:
-     - spring-cloud-network          
+      - spring-cloud-network          
 networks:
-    spring-cloud-network:
-        driver: bridge     
+  spring-cloud-network:
+    driver: bridge     
