@@ -4,9 +4,9 @@ Projeto sample utilizando Spring Boot
 Requisitos necessários para execução da aplicação:
 
 	- Java 8
-	- Maven
+	- Maven (Última versão)
 	- Docker
-	- Docker-compose
+	- Docker-compose(Última versão)
 
 O projeto é composto por quatro subprojetos, são eles:
 	1) spring-boot-repo - Repositório está guardado os arquivos de configuração.
