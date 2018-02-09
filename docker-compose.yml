@@ -1,9 +1,11 @@
 version: '2'
 services:
   app:
-    image: java-app
+    image: openjdk:8-jdk-alpine
     ports:
-      - "8080:8080"
+      - "8086:8080"
+    working_dir: /usr/src/app
+    command: java -jar app.jar
     networks:
       - spring-cloud-network    
     depends_on:
@@ -12,20 +14,21 @@ services:
       - rabbitmq-server
       - config-server
     volumes:
-      - ./spring-boot-sample/target:/opt
+      - ./spring-boot-sample/target:/usr/src/app
   config-server:
-    image: java-app
-    build:
-      context: .
-      dockerfile: Dockerfile    
+    image: openjdk:8-jdk-alpine
+    working_dir: /usr/src/app
+    command: java -jar app.jar
+    volumes:
+      - ./spring-config-server/target:/usr/src/app
     ports:
       - "8888:8888"
     networks:
       - spring-cloud-network
-    volumes:
-      - ./spring-config-server/target:/opt
   email-sender:
-    image: java-app
+    image: openjdk:8-jdk-alpine
+    working_dir: /usr/src/app
+    command: java -jar app.jar    
     ports:
       - "8082:8081"
     networks:
@@ -34,7 +37,7 @@ services:
       - rabbitmq-server    
       - config-server 
     volumes:
-      - ./spring-rabbitmq-consumer/target:/opt
+      - ./spring-rabbitmq-consumer/target:/usr/src/app
   mypostgres:
     image: postgres:alpine
     ports:
