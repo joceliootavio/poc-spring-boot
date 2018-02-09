@@ -33,7 +33,8 @@ services:
     networks:
       - spring-cloud-network
     depends_on:
-      - rabbitmq-server     
+      - rabbitmq-server    
+      - config-server 
   mypostgres:
     image: postgres
     ports:
