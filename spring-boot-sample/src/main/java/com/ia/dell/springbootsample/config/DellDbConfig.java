@@ -52,7 +52,6 @@ public class DellDbConfig {
 		factoryBean.setPackagesToScan("com.ia.dell.springbootsample.model");
 		
 		Properties jpaProperties = new Properties();
-		jpaProperties.setProperty("hibernate.hbm2ddl", "update");
 		jpaProperties.setProperty("hibernate.default_schema", "public");
 		factoryBean.setJpaProperties(jpaProperties);
 		

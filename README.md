@@ -9,7 +9,7 @@ Requisitos necessários para execução da aplicação:
 	- Docker-compose(Última versão)
 
 O projeto é composto por quatro subprojetos, são eles:
-	1) spring-boot-repo - Repositório está guardado os arquivos de configuração.
+	1) spring-boot-repo - Repositório remoto onde está os arquivos de configuração.
 	2) spring-rabbitmq-consumer - Aplicação responsável por consumir as mensagens da fila no RabbitMQ para enviar emails.
 	3) spring-boot-sample - Aplicação principal onde estão disponibilizados os serviços de Login e Usuário.
 	4) spring-config-server - Aplicação que disponibiliza remotamente as informações de configuração para os projetos 2 e 3 
