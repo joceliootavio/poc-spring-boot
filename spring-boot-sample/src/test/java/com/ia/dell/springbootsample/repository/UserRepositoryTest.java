@@ -2,6 +2,7 @@ package com.ia.dell.springbootsample.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import javax.servlet.ServletContext;
 import javax.validation.ConstraintViolationException;
 
 import org.junit.Test;
@@ -9,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ia.dell.springbootsample.model.User;
@@ -16,7 +19,11 @@ import com.ia.dell.springbootsample.mother.UserMother;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+@ContextConfiguration
 public class UserRepositoryTest {
+	
+	@MockBean
+	private ServletContext servletContext;
  
     @Autowired
     private TestEntityManager entityManager;
@@ -76,4 +83,8 @@ public class UserRepositoryTest {
     	
     	assertThat(userRepository.findByAdminTrue()).hasSize(1);;
     }    
+    
+    public ServletContext createServletContext() {
+    	return servletContext;
+    }
 }
