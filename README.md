@@ -12,10 +12,10 @@ Todas as dependências são gerenciadas pelo maven, portanto estão listadas no 
 
 ## Estrutura do projeto maven
 O projeto é composto por quatro módulos, são eles:
-	1. spring-boot-repo - Repositório remoto onde está os arquivos de configuração.
-	2. spring-rabbitmq-consumer - Aplicação responsável por consumir as mensagens da fila no RabbitMQ para enviar emails.
-	3. spring-boot-sample - Aplicação principal onde estão disponibilizados os serviços de Login e Usuário.
-	4. spring-config-server - Aplicação que disponibiliza remotamente as informações de configuração para os projetos 2 e 3 
+* spring-boot-repo - Repositório remoto onde está os arquivos de configuração.
+* spring-rabbitmq-consumer - Aplicação responsável por consumir as mensagens da fila no RabbitMQ para enviar emails.
+* spring-boot-sample - Aplicação principal onde estão disponibilizados os serviços de Login e Usuário.
+* spring-config-server - Aplicação que disponibiliza remotamente as informações de configuração para os projetos 2 e 3 
 	com os perfis development e production.	
 
 ## Infraestrutura
