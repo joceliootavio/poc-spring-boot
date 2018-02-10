@@ -31,7 +31,7 @@ Para rodar a aplicação basta executar o comando **mvn package** na raiz e depo
 A aplicação principal estará disponível no endereço http://localhost:8080. O usuario **jossa** com a senha **1234** está cadastrado na base e pode ser utilizado para testes.
 
 ## Documentação
-A documentação dos recursos disponíveis via api REST encontra-se disponível no endereço **/docs** relativo ao path raiz da aplicação.
+A documentação dos recursos disponíveis via api REST encontra-se disponível no endereço **/docs/index.html** relativo ao path raiz da aplicação.
 
 ## Estrutura de pacotes da aplicação principal
 Dentro do diretório padrão do maven *src/main/java* temos
