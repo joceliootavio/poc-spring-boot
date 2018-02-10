@@ -3,7 +3,7 @@ services:
   app:
     image: openjdk:8-jdk-alpine
     ports:
-      - "8086:8080"
+      - "8080:8080"
     working_dir: /usr/src/app
     command: java -jar app.jar
     depends_on:
@@ -47,7 +47,6 @@ services:
       - POSTGRES_DB=spring-boot-sample
     volumes:
       - ./migrations:/opt/postgres
-    command: psql -U postgres postgres -f /opt/postgres/bootstrap.sql
   redis-server:
     image: "redis:alpine"
     ports:
