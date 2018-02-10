@@ -1,7 +1,7 @@
 # spring-boot-sample
 Projeto sample utilizando Spring Boot
 
-Requisitos necessários para execução da aplicação:
+Pré-requisitos para funcionamento da aplicação:
 
 	- Java 8
 	- Maven (Última versão)
@@ -21,8 +21,8 @@ Foram mantidas as configurações de porta padrão para todos os serviços, conf
 	Postgres:5432
 	Config-server:8888	
 
-Para rodar a aplicação basta executar o comando *mvn package* e depois *sudo docker-compose up*
+Para rodar a aplicação basta executar o comando *mvn package* na raiz e depois executar *sudo docker-compose up -d*
 
-A aplicação principal estará disponível no endereço http://localhost:8080;
+A aplicação principal estará disponível no endereço http://localhost:8080. O usuario *jossa* com a senha *1234* está cadastrado na base e pode ser utilizado para testes.
 
 A documentação da api encontra-se disponível no endereço /docs relativo ao path raiz da aplicação
